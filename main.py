@@ -24,7 +24,7 @@ class Window():
         self.__running = False
 
     def draw_line(self, Line, fill_color):
-        Line.draw()
+        Line.draw(Canvas, fill_color)
 
 class Point():
     def __init__(self):
@@ -36,13 +36,15 @@ class Line():
         self.x = x
         self.y = y
 
-    def draw(self, canvas, fill_color):
-        canvas.create_line(
+    def draw(self, Canvas, fill_color):
+        Canvas.create_line(
             x1, y1, x2, y2, fill=fill_color, width=2
         )
 
 def main():
     win = Window(800, 600)
+    ln = Line(20, 45)
+    win.draw_line(ln, "Black")
     win.wait_for_close()
     
 main()

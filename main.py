@@ -23,6 +23,24 @@ class Window():
     def close(self):
         self.__running = False
 
+    def draw_line(self, Line, fill_color):
+        Line.draw()
+
+class Point():
+    def __init__(self):
+        self.x = 0
+        self.y = 0
+
+class Line():
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+    def draw(self, canvas, fill_color):
+        canvas.create_line(
+            x1, y1, x2, y2, fill=fill_color, width=2
+        )
+
 def main():
     win = Window(800, 600)
     win.wait_for_close()
